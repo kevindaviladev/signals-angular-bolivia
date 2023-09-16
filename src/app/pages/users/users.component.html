@@ -1,0 +1,15 @@
+<div *ngIf="userService.loading()">Loading...</div>
+
+<div *ngIf="userService.error()">
+  {{ userService.error() }}
+</div>
+
+<ul *ngFor="let todo of userService.data()">
+  {{
+    todo.id
+  }}
+  -
+  {{
+    todo.name
+  }}
+</ul>

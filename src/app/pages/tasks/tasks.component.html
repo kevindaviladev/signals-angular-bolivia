@@ -1,0 +1,37 @@
+<div class="d-grid">
+  <h1>Mis tareas</h1>
+  <div class="row">
+    <div class="col-9">
+      <input
+        type="email"
+        class="form-control"
+        id="exampleFormControlInput1"
+        [formControl]="task"
+        placeholder="name@example.com"
+      />
+    </div>
+    <button class="btn btn-primary col-3" (click)="addTask()">Agregar</button>
+  </div>
+
+  <pre><code>{{tasks() | json}}</code></pre>
+
+  <div class="row mt-3" *ngFor="let task of tasks()">
+    <div class="form-check align-items-center col-9">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        [value]="task.isCompleted"
+        (click)="toggleCompletedTask(task)"
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label" for="flexCheckDefault">
+        {{ task.name }}
+      </label>
+    </div>
+    <button class="btn btn-danger col-3" (click)="deleteTask(task)">
+      Eliminar
+    </button>
+  </div>
+</div>
+
+Tareas completadas => {{ completedTasks() | json }}
